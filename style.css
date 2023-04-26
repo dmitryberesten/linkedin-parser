@@ -1,0 +1,31 @@
+body {
+    background: #c4c0c0;
+    color: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    margin: 0;
+}
+
+a {
+    color: #291313;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+a:hover {
+    color: #17215b;
+    background-color: #a1d012;
+    text-decoration: none;
+}
+
+p {
+    color: rgb(26, 93, 150);
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+}

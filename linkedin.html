@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Linkedin</title>
+</head>
+
+<body>
+    <script src="./likes.js"></script>
+    <script>
+
+        // пошук тих хто поставив лайки на пості
+        var linksLikes = document.querySelectorAll(
+            'a[href^="https://www.linkedin.com/in/"]'
+        );
+
+        var linkListLikes = [];
+        for (var i = 0; i < linksLikes.length; i++) {
+            linkListLikes.push(linksLikes[i].getAttribute("href"));
+        }
+        console.log(linkListLikes);
+
+        const pageSize = 20; // Розмір однієї сторінки
+        const pageCount = Math.ceil(elements.length / pageSize); // Кількість сторінок
+
+        for (let i = 0; i < pageCount; i++) {
+            // Отримуємо частину масиву для даної сторінки
+            const pageElements = elements.slice(i * pageSize, (i + 1) * pageSize);
+
+            // Створюємо новий тег <p> з текстом інформаційного повідомлення та номером сторінки
+            const pageHeader = document.createElement('p');
+            pageHeader.textContent = `Люди які поставили лайк. Частина ${i + 1} з ${pageCount} (20 штук)`;
+
+            // Створюємо новий тег <p> з посиланнями
+            const pageLinks = document.createElement('p');
+            for (let j = 0; j < pageElements.length; j++) {
+                const link = document.createElement('a');
+                link.href = pageElements[j];
+                link.target = '_blank'; // Додати атрибут target
+                link.textContent = pageElements[j];
+                pageLinks.appendChild(link);
+                pageLinks.appendChild(document.createElement('br'));
+
+                // Додати тег <br> між 10 і 10 посиланнями
+                if ((j + 1) % 10 === 0 && j !== pageElements.length - 1) {
+                    const br = document.createElement('br');
+                    pageLinks.appendChild(br);
+                }
+            }
+
+            // Додаємо створені теги до HTML-документу
+            document.body.appendChild(pageHeader);
+            document.body.appendChild(pageLinks);
+        }
+
+    </script>
+</body>
+
+</html>
